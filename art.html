@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2K26 | Art Fest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tech.css"> <!-- Reusing common subpage styles -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+
+<body class="">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="index.html" class="hover-target nav-link">Home</a>
+            <a href="tech.html" class="hover-target nav-link">Tech</a>
+            <a href="art.html" class="hover-target nav-link active">Art</a>
+            <a href="sports.html" class="hover-target nav-link">Sports</a>
+            <a href="index.html#register" class="hover-target nav-btn">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Region -->
+        <section class="sub-hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">CREATE & EXPRESS</div>
+                <h1 class="hero-title glitch-text" data-text="ART FEST">ART FEST</h1>
+                <p class="hero-desc">Immerse yourself in colors, rhythms, and artistic freedom. Unleash the Theyyam
+                    spirit in your creations.</p>
+                <div class="scroll-indicator">
+                    <span>EXPLORE</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Regions -->
+        <section class="section events-section" id="performing">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">PERFORMING</h2>
+                        <h2 class="section-title outline">ARTS</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Art Event 1 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 0, 60, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-user-star-line"></i></div>
+                            <h3>Solo Dance Battle</h3>
+                            <p>Showcase your best moves. Lock, pop, or perform classical routines to claim the grand
+                                prize.</p>
+                            <div class="event-meta">
+                                <span><i class="ri-user-line"></i> Solo</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ₹100</span>
+                            </div>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section events-section" id="visual">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">VISUAL</h2>
+                        <h2 class="section-title outline">ARTS</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Art Event 2 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(138, 43, 226, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-brush-fill"></i></div>
+                            <h3>Face Painting</h3>
+                            <p>Taking inspiration from the vibrant Theyyam aesthetics, transform faces into stunning
+                                canvases.</p>
+                            <div class="event-meta">
+                                <span><i class="ri-team-line"></i> 2 Members</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ₹200/team</span>
+                            </div>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="ri-home-5-line"></i>
+            <span>Home</span>
+        </a>
+        <a href="tech.html" class="nav-item">
+            <i class="ri-terminal-box-line"></i>
+            <span>Tech</span>
+        </a>
+        <a href="art.html" class="nav-item active">
+            <i class="ri-palette-fill"></i>
+            <span>Art</span>
+        </a>
+        <a href="sports.html" class="nav-item">
+            <i class="ri-football-line"></i>
+            <span>Sports</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="tech.js"></script> <!-- Reusing tech.js scripts -->
+</body>
+
+</html>

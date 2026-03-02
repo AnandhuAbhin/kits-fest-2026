@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2K26 | Tech Fest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tech.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+
+<body class="">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="index.html" class="hover-target nav-link">Home</a>
+            <a href="tech.html" class="hover-target nav-link active">Tech</a>
+            <a href="art.html" class="hover-target nav-link">Art</a>
+            <a href="sports.html" class="hover-target nav-link">Sports</a>
+            <a href="index.html#register" class="hover-target nav-btn">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Region -->
+        <section class="sub-hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">INNOVATE & CONQUER</div>
+                <h1 class="hero-title glitch-text" data-text="TECH FEST">TECH FEST</h1>
+                <p class="hero-desc">Dive into the Upside Down of technology. Compete in hackathons, debugging
+                    challenges, and fast-paced technical events.</p>
+                <div class="scroll-indicator">
+                    <span>EXPLORE</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Regions -->
+        <section class="section events-section" id="technical">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">TECHNICAL</h2>
+                        <h2 class="section-title outline">EVENTS</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Tech Event 1 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-code-box-line"></i></div>
+                            <h3>Hellfire Hackathon</h3>
+                            <p>24 hours of non-stop coding. Build projects to defeat the Mind Flayer. Hardware &
+                                Software categories available.</p>
+                            <div class="event-meta">
+                                <span><i class="ri-team-line"></i> 2-4 Members</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ₹500/team</span>
+                            </div>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- Tech Event 2 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-bug-line"></i></div>
+                            <h3>Demogorgon Debug</h3>
+                            <p>Race against time to find and fix the bugs in the code. Bring your best logical skills to
+                                survive.</p>
+                            <div class="event-meta">
+                                <span><i class="ri-user-line"></i> Solo</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ₹150</span>
+                            </div>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section events-section" id="common">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">COMMON</h2>
+                        <h2 class="section-title outline">EVENTS</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Common Event 1 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(138, 43, 226, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-brain-line"></i></div>
+                            <h3>Mind Flayer Quiz</h3>
+                            <p>Test your knowledge across technology, pop culture, and the Stranger Things universe.</p>
+                            <div class="event-meta">
+                                <span><i class="ri-team-line"></i> 2 Members</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ₹200/team</span>
+                            </div>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section events-section" id="games">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">FUN</h2>
+                        <h2 class="section-title outline">GAMES</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Game Event 1 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-treasure-map-line"></i></div>
+                            <h3>Upside Down Treasure Hunt</h3>
+                            <p>Navigate the campus, solve clues, and find the portal before time runs out.</p>
+                            <div class="event-meta">
+                                <span><i class="ri-team-line"></i> 4 Members</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ₹400/team</span>
+                            </div>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="ri-home-5-line"></i>
+            <span>Home</span>
+        </a>
+        <a href="tech.html" class="nav-item active">
+            <i class="ri-terminal-box-fill"></i>
+            <span>Tech</span>
+        </a>
+        <a href="art.html" class="nav-item">
+            <i class="ri-palette-line"></i>
+            <span>Art</span>
+        </a>
+        <a href="sports.html" class="nav-item">
+            <i class="ri-football-line"></i>
+            <span>Sports</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="tech.js"></script>
+</body>
+
+</html>

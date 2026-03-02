@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2026 | Tradition Meets The Upside Down</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+
+<body class="loading">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="WhatsApp_Image_2026-03-01_at_12.13.57_PM-removebg-preview.png" alt="Theyyam Mask"
+            class="preloader-img">
+        <div class="preloader-content">
+            <h2 class="preloader-text glitch-text" data-text="VEDVORA">VEDVORA</h2>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="progress-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="#about" class="hover-target nav-link active">About</a>
+            <a href="#events" class="hover-target nav-link">Events</a>
+            <a href="#register" class="hover-target nav-btn">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Region -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">THE ULTIMATE FEST</div>
+                <h1 class="hero-title glitch-text" data-text="VEDVORA">VEDVORA</h1>
+                <h1 class="hero-title outline-text">FEST 2K26</h1>
+                <p class="hero-desc">Experience three days of extraordinary events, divine Theyyam encounters, and
+                    unforgettable moments where tradition meets the Upside Down.</p>
+                <div class="cta-actions">
+                    <a href="#register" class="primary-btn hover-target mobile-glow-btn">
+                        <span class="btn-text">GET PASS</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+                <div class="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Region -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text glass-panel">
+                        <div class="panel-glow"></div>
+                        <h2 class="section-title">ANCIENT MYTHS.</h2>
+                        <h2 class="section-title outline">NEW DIMENSIONS.</h2>
+                        <p class="section-desc">Get ready for an immersive experience that blurs the line between
+                            ancient Theyyam traditions and the Upside Down. Competitions, music, coding battles, and
+                            eerie mysteries await
+                            you. Embrace the divine rhythm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Region -->
+        <section id="events" class="section events-section">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">FEATURED</h2>
+                        <h2 class="section-title outline">EVENTS</h2>
+                    </div>
+                    <p class="swipe-hint mobile-only"><i class="ri-arrow-left-right-line"></i> Swipe to explore</p>
+                </div>
+
+                <div class="cards-carousel">
+                    <div class="cards-track">
+                        <div class="event-card hover-target glass-card">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="event-header">
+                                    <span class="event-number">01</span>
+                                    <div class="event-icon"><i class="ri-terminal-box-line"></i></div>
+                                </div>
+                                <h3>Hellfire Hackathon</h3>
+                                <p>24 hours of non-stop coding. Build projects to defeat the Mind Flayer. Hardware &
+                                    Software categories available.</p>
+                                <a href="tech.html" class="card-link">Explore <i class="ri-arrow-right-up-line"></i></a>
+                            </div>
+                        </div>
+                        <div class="event-card hover-target glass-card">
+                            <div class="card-glow"
+                                style="background: radial-gradient(circle at 50% 0%, rgba(138, 43, 226, 0.4) 0%, transparent 70%);">
+                            </div>
+                            <div class="card-content">
+                                <div class="event-header">
+                                    <span class="event-number">02</span>
+                                    <div class="event-icon"><i class="ri-gamepad-line"></i></div>
+                                </div>
+                                <h3>Palace eSports</h3>
+                                <p>Compete in retro and modern gaming tournaments to claim the title of MADMAX.
+                                    Valorant, FIFA, and classic arcade.</p>
+                                <a href="art.html" class="card-link">Explore <i class="ri-arrow-right-up-line"></i></a>
+                            </div>
+                        </div>
+                        <div class="event-card hover-target glass-card">
+                            <div class="card-glow"
+                                style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                            </div>
+                            <div class="card-content">
+                                <div class="event-header">
+                                    <span class="event-number">03</span>
+                                    <div class="event-icon"><i class="ri-music-2-line"></i></div>
+                                </div>
+                                <h3>Snow Ball Dance</h3>
+                                <p>End the fest with an 80s themed prom night. Neon lights, synth-wave music, DJ night,
+                                    and memories that last a lifetime.</p>
+                                <a href="sports.html" class="card-link">Explore <i
+                                        class="ri-arrow-right-up-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Region -->
+        <section id="register" class="section cta-section">
+            <div class="container text-center">
+                <div class="cta-glass-panel">
+                    <h2 class="huge-text hover-target">ENTER NOW</h2>
+                    <p class="cta-subtitle">The gate is closing soon.</p>
+                    <a href="#register" class="primary-btn hover-target mobile-glow-btn">
+                        <span class="btn-text">GET YOUR PASS</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="#home" class="nav-item active">
+            <i class="ri-home-5-fill"></i>
+            <span>Home</span>
+        </a>
+        <a href="#about" class="nav-item">
+            <i class="ri-information-line"></i>
+            <span>About</span>
+        </a>
+        <a href="#events" class="nav-item">
+            <i class="ri-calendar-event-line"></i>
+            <span>Events</span>
+        </a>
+        <a href="#register" class="nav-item tab-cta">
+            <div class="nav-fab">
+                <i class="ri-ticket-2-line"></i>
+            </div>
+            <span>Pass</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
