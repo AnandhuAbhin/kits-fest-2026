@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2K26 | Fun Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tech.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+
+<body class="">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="index.html" class="hover-target nav-link">Home</a>
+            <a href="tech.html" class="hover-target nav-link active">Tech</a>
+            <a href="art.html" class="hover-target nav-link">Art</a>
+            <a href="sports.html" class="hover-target nav-link">Sports</a>
+            <a href="index.html#register" class="hover-target nav-btn">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Region -->
+        <section class="sub-hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">HAVE A BLAST</div>
+                <h1 class="hero-title glitch-text" data-text="FUN EVENTS">FUN EVENTS</h1>
+                <p class="hero-desc">Take a break and enjoy these exciting, interactive, and entertaining games.</p>
+                <div class="scroll-indicator">
+                    <span>EXPLORE</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Regions -->
+        <section class="section events-section" id="fun-events-list">
+            <div class="container">
+                <div style="margin-bottom: 3rem;">
+                    <a href="tech.html" class="primary-btn sm hover-target"
+                        style="display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="ri-arrow-left-line"></i> Back to Categories
+                    </a>
+                </div>
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">ALL</h2>
+                        <h2 class="section-title outline">FUN ACTIVITIES</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Escape Room -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-door-lock-line"></i></div>
+                            <h3>Escape Room</h3>
+                            <p>Work with your team to solve puzzles, find clues, and escape the locked room before time
+                                runs out.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- Dark Room -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-moon-clear-line"></i></div>
+                            <h3>Dark Room</h3>
+                            <p>Navigate through pitch darkness relying only on your other senses and teamwork to
+                                complete tasks.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- Touch Me Not -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-hand-coin-line"></i></div>
+                            <h3>Touch Me Not</h3>
+                            <p>A classic wire loop game. Move the wand along the wire without touching it to avoid
+                                setting off the buzzer.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- Cup Pyramid -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-stack-line"></i></div>
+                            <h3>Cup Pyramid</h3>
+                            <p>A test of speed, agility, and concentration. Stack cups into a perfect pyramid and take
+                                them down as fast as possible.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- Hit the Colour -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-focus-3-line"></i></div>
+                            <h3>Hit the Colour</h3>
+                            <p>Aim, throw, and match! A fun carnival-style game requiring precision and good hand-eye
+                                coordination.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- VR -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-gamepad-line"></i></div>
+                            <h3>Virtual Reality (VR)</h3>
+                            <p>Immerse yourself in spectacular virtual worlds and experience gaming like never before.
+                            </p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <!-- PS4 -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.3) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-playstation-line"></i></div>
+                            <h3>PS4 Gaming</h3>
+                            <p>Grab a controller and challenge your friends in popular multiplayer console games.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <a href="tech.html" class="primary-btn hover-target"
+                        style="display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="ri-arrow-left-line"></i> Back to Categories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="ri-home-5-line"></i>
+            <span>Home</span>
+        </a>
+        <a href="tech.html" class="nav-item active">
+            <i class="ri-terminal-box-fill"></i>
+            <span>Tech</span>
+        </a>
+        <a href="art.html" class="nav-item">
+            <i class="ri-palette-line"></i>
+            <span>Art</span>
+        </a>
+        <a href="sports.html" class="nav-item">
+            <i class="ri-football-line"></i>
+            <span>Sports</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="tech.js"></script>
+</body>
+
+</html>

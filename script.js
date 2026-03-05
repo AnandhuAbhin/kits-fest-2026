@@ -81,8 +81,8 @@ window.addEventListener('load', () => {
         },
         onComplete: () => {
             if (preloaderText) {
-                preloaderText.textContent = "SEiGE";
-                preloaderText.setAttribute("data-text", "SEiGE ");
+                preloaderText.textContent = "SIEGE";
+                preloaderText.setAttribute("data-text", "SIEGE ");
             }
 
             const tl = gsap.timeline({ delay: 0.2 });
