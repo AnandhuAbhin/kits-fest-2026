@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2K26 | Athletics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tech.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+
+<body class="">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="index.html" class="hover-target nav-link">Home</a>
+            <a href="tech.html" class="hover-target nav-link">Tech</a>
+            <a href="art.html" class="hover-target nav-link">Art</a>
+            <a href="sports.html" class="hover-target nav-link active">Sports</a>
+            <a href="index.html#register" class="hover-target nav-btn">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Region -->
+        <section class="sub-hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">TRACK & FIELD</div>
+                <h1 class="hero-title glitch-text" data-text="ATHLETICS">ATHLETICS</h1>
+                <p class="hero-desc">Push your limits. Compete in fierce outdoor athletic events against the best.</p>
+                <div class="scroll-indicator">
+                    <span>EXPLORE</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Regions -->
+        <section class="section events-section" id="athletics-events-list">
+            <div class="container">
+                <div style="margin-bottom: 3rem;">
+
+                </div>
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">ALL</h2>
+                        <h2 class="section-title outline">ATHLETICS</h2>
+                    </div>
+                </div>
+
+                <div class="sub-events-grid">
+                    <!-- Events -->
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-record-circle-fill"></i></div>
+                            <h3>Shot Put</h3>
+                            <p>Demonstrate your explosive power in the track and field shot put competition.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-disc-line"></i></div>
+                            <h3>Discus Throw</h3>
+                            <p>Show your technique, strength, and precision throwing the heavy discus.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-sword-line"></i></div>
+                            <h3>Javelin Throw</h3>
+                            <p>Channel ancient athleticism in the classic javelin throw for distance.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-walk-line"></i></div>
+                            <h3>Long Jump</h3>
+                            <p>Combine speed and spring in the explosive broad jump competition.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-run-fill"></i></div>
+                            <h3>100m Race</h3>
+                            <p>The ultimate test of pure sprint speed. Be the fastest on the track.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-run-fill"></i></div>
+                            <h3>200m Race</h3>
+                            <p>A challenging sprint requiring both top speed and speed endurance.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-run-line"></i></div>
+                            <h3>400m Race</h3>
+                            <p>The infamous sprint around the full track. Bring your absolute limit.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-run-line"></i></div>
+                            <h3>800m Race</h3>
+                            <p>A grueling mix of aerobic endurance and tactical sprinting speed.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-timer-flash-line"></i></div>
+                            <h3>1500m Race</h3>
+                            <p>The metric mile. Outlast your opponents in this premier middle-distance run.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card hover-target glass-card">
+                        <div class="card-glow"
+                            style="background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.4) 0%, transparent 70%);">
+                        </div>
+                        <div class="card-content">
+                            <div class="event-icon-large"><i class="ri-team-fill"></i></div>
+                            <h3>Relay (4x100)</h3>
+                            <p>Pass the baton flawlessly. Teamwork and speed are vital for victory.</p>
+                            <a href="#" class="primary-btn sm hover-target">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <a href="sports.html" class="primary-btn hover-target"
+                        style="display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="ri-arrow-left-line"></i> Back to Categories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="ri-home-5-line"></i>
+            <span>Home</span>
+        </a>
+        <a href="tech.html" class="nav-item">
+            <i class="ri-terminal-box-line"></i>
+            <span>Tech</span>
+        </a>
+        <a href="art.html" class="nav-item">
+            <i class="ri-palette-line"></i>
+            <span>Art</span>
+        </a>
+        <a href="sports.html" class="nav-item active">
+            <i class="ri-football-fill"></i>
+            <span>Sports</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="tech.js"></script> <!-- Reusing tech.js scripts -->
+</body>
+
+</html>
