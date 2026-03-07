@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2K26 | Scorecard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tech.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+    <style>
+        /* Results List Styles */
+        .results-container {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .event-result {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .event-result:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .event-result h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .winner-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .winner-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .winner-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .position {
+            font-weight: 700;
+            font-size: 1.2rem;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pos-1 {
+            color: #FFD700;
+        }
+
+        /* Gold */
+        .pos-2 {
+            color: #C0C0C0;
+        }
+
+        /* Silver */
+        .pos-3 {
+            color: #CD7F32;
+        }
+
+        /* Bronze */
+
+        .winner-info {
+            flex-grow: 1;
+            margin-left: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .winner-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .winner-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .winner-dept {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .winner-social {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .winner-social:hover {
+            color: #E1306C;
+            /* Instagram brand color */
+        }
+
+        .winner-social i {
+            font-size: 1.1rem;
+        }
+
+        /* Leaderboard Table Styles */
+        .leaderboard-wrapper {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        /* Optional glowing border effect similar to the cards */
+        .leaderboard-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(20, 184, 166, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leaderboard-table th {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .leaderboard-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s ease;
+        }
+
+        .leaderboard-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .leaderboard-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .leaderboard-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.01);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .col-pos {
+            width: 10%;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .col-team {
+            width: 40%;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .team-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .col-medals {
+            width: 10%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .col-points {
+            width: 20%;
+            text-align: right;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Table */
+        @media (max-width: 600px) {
+            .winner-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .winner-social {
+                font-size: 0.85rem;
+            }
+
+            .leaderboard-wrapper {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .leaderboard-table th,
+            .leaderboard-table td {
+                padding: 0.8rem 0.4rem;
+            }
+
+            .col-pos {
+                font-size: 1.1rem;
+                width: 8%;
+            }
+
+            .col-team {
+                font-size: 1.1rem;
+                width: 32%;
+                gap: 0.5rem;
+            }
+
+            .team-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .col-medals {
+                font-size: 0.9rem;
+                width: 12%;
+            }
+
+            .col-medals i {
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .col-points {
+                font-size: 1.3rem;
+                width: 16%;
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="index.html" class="hover-target nav-link">Home</a>
+            <a href="tech.html" class="hover-target nav-link">Tech</a>
+            <a href="art.html" class="hover-target nav-link">Art</a>
+            <a href="sports.html" class="hover-target nav-link">Sports</a>
+            <a href="scorecard.html" class="hover-target nav-link active">Scorecard</a>
+            <a href="index.html#register" class="hover-target nav-btn">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Region -->
+        <section class="sub-hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">LIVE LEADERBOARD</div>
+                <h1 class="hero-title glitch-text" data-text="SCORECARD">SCORECARD</h1>
+                <p class="hero-desc">Track the battle for the overall championship. Real-time updates and event results.
+                </p>
+                <div class="scroll-indicator">
+                    <span>VIEW SCORES</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scoreboard Section -->
+        <section class="section" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">TEAM</h2>
+                        <h2 class="section-title outline">STANDINGS</h2>
+                    </div>
+                </div>
+
+                <div class="leaderboard-wrapper">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th class="col-pos">Pos</th>
+                                <th class="col-team">Team</th>
+                                <th class="col-medals"><i class="ri-medal-fill" style="color: #FFD700;"></i> 1st</th>
+                                <th class="col-medals"><i class="ri-medal-fill" style="color: #C0C0C0;"></i> 2nd</th>
+                                <th class="col-medals"><i class="ri-medal-fill" style="color: #CD7F32;"></i> 3rd</th>
+                                <th class="col-points">Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rank 1: CSE -->
+                            <tr>
+                                <td class="col-pos pos-1">1</td>
+                                <td class="col-team" style="color: var(--primary);">
+                                    <span class="team-dot" style="background-color: var(--primary);"></span>
+                                    CSE
+                                </td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-points">0</td>
+                            </tr>
+
+                            <!-- Rank 2: CIVIL -->
+                            <tr>
+                                <td class="col-pos pos-2">2</td>
+                                <td class="col-team" style="color: #FFAA00;">
+                                    <span class="team-dot" style="background-color: #FFAA00;"></span>
+                                    CIVIL
+                                </td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-points">0</td>
+                            </tr>
+
+                            <!-- Rank 3: EEE -->
+                            <tr>
+                                <td class="col-pos pos-3">3</td>
+                                <td class="col-team" style="color: #8A2BE2;">
+                                    <span class="team-dot" style="background-color: #8A2BE2;"></span>
+                                    EEE
+                                </td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-points">0</td>
+                            </tr>
+
+                            <!-- Rank 4: AUTO -->
+                            <tr>
+                                <td class="col-pos" style="color: rgba(255,255,255,0.7);">4</td>
+                                <td class="col-team" style="color: #FF003C;">
+                                    <span class="team-dot" style="background-color: #FF003C;"></span>
+                                    AUTO
+                                </td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-points">0</td>
+                            </tr>
+
+                            <!-- Rank 5: EC -->
+                            <tr>
+                                <td class="col-pos" style="color: rgba(255,255,255,0.7);">5</td>
+                                <td class="col-team" style="color: #0099FF;">
+                                    <span class="team-dot" style="background-color: #0099FF;"></span>
+                                    EC
+                                </td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-medals">0</td>
+                                <td class="col-points">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Results Section -->
+        <section class="section" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="events-header">
+                    <div>
+                        <h2 class="section-title">RECENT</h2>
+                        <h2 class="section-title outline">RESULTS</h2>
+                    </div>
+                </div>
+
+                <div class="results-container">
+
+                    <!-- Bridge Making Results -->
+                    <div class="event-result">
+                        <h3><i class="ri-tools-line"></i> Tech: Bridge Making</h3>
+                        <ul class="winner-list">
+                            <li class="winner-item">
+                                <div class="position pos-1"><i class="ri-medal-fill"></i></div>
+                                <div class="winner-info">
+                                    <div class="winner-details">
+                                        <div class="winner-name">Sreeram</div>
+                                        <div class="winner-dept">CIVIL</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="winner-item">
+                                <div class="position pos-2"><i class="ri-medal-fill"></i></div>
+                                <div class="winner-info">
+                                    <div class="winner-details">
+                                        <div class="winner-name">Aravind</div>
+                                        <div class="winner-dept">CSE</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="winner-item">
+                                <div class="position pos-3"><i class="ri-medal-fill"></i></div>
+                                <div class="winner-info">
+                                    <div class="winner-details">
+                                        <div class="winner-name">Alan</div>
+                                        <div class="winner-dept">CSE</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Long Jump Results -->
+                    <div class="event-result">
+                        <h3><i class="ri-walk-line"></i> Athletics: Long Jump</h3>
+                        <ul class="winner-list">
+                            <li class="winner-item">
+                                <div class="position pos-1"><i class="ri-medal-fill"></i></div>
+                                <div class="winner-info">
+                                    <div class="winner-details">
+                                        <div class="winner-name">Anandhu</div>
+                                        <div class="winner-dept">CSE</div>
+                                    </div>
+                                    <a href="https://www.instagram.com/a_n_a_n_d_h_u.a"
+                                        class="winner-social hover-target" target="_blank">
+                                        <i class="ri-instagram-line">@a_n_a_n_d_h_u.a</i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="winner-item">
+                                <div class="position pos-2"><i class="ri-medal-fill"></i></div>
+                                <div class="winner-info">
+                                    <div class="winner-details">
+                                        <div class="winner-name">Melwin</div>
+                                        <div class="winner-dept">CSE</div>
+                                    </div>
+                                    <a href="https://www.instagram.com/melwin._.reji_daniel/"
+                                        class="winner-social hover-target" target="_blank">
+                                        <i class="ri-instagram-line"></i> @melwin._.reji_daniel
+
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="winner-item">
+                                <div class="position pos-3"><i class="ri-medal-fill"></i></div>
+                                <div class="winner-info">
+                                    <div class="winner-details">
+                                        <div class="winner-name">Akshay</div>
+                                        <div class="winner-dept">CIVIL</div>
+                                    </div>
+                                    <a href="https://www.instagram.com/_akzh__eye_/" class="winner-social hover-target"
+                                        target="_blank">
+                                        <i class="ri-instagram-line"></i> @_akzh__eye_
+
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- You can add more event results here by copying the block above -->
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 5rem;">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="ri-home-5-line"></i>
+            <span>Home</span>
+        </a>
+        <a href="tech.html" class="nav-item">
+            <i class="ri-terminal-box-line"></i>
+            <span>Tech</span>
+        </a>
+        <a href="art.html" class="nav-item">
+            <i class="ri-palette-line"></i>
+            <span>Art</span>
+        </a>
+        <a href="sports.html" class="nav-item">
+            <i class="ri-football-line"></i>
+            <span>Sports</span>
+        </a>
+        <a href="scorecard.html" class="nav-item active">
+            <i class="ri-bar-chart-fill"></i>
+            <span>Scorecard</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="tech.js"></script> <!-- Reusing tech.js scripts -->
+</body>
+
+</html>
