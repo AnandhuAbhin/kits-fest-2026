@@ -195,17 +195,101 @@
             display: none;
         }
 
-        /* Success Message */
-        .success-message {
-            display: none;
-            background: rgba(30, 200, 100, 0.1);
-            border: 1px solid rgba(30, 200, 100, 0.5);
-            color: #1ec864;
-            padding: 1.5rem;
-            border-radius: 8px;
+        /* Success Popup Modal */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .success-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-content {
+            background: rgba(20, 20, 25, 0.9);
+            border: 1px solid rgba(30, 200, 100, 0.3);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 450px;
+            width: 90%;
             text-align: center;
-            margin-top: 2rem;
-            font-weight: 500;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(30, 200, 100, 0.1);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-modal.active .success-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #1ec864;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(30, 200, 100, 0.4);
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.1); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .success-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .success-message-text {
+            color: #aaa;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .return-btn {
+            display: inline-block;
+            background: #1ec864;
+            color: #000;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .return-btn:hover {
+            background: #17a652;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 200, 100, 0.3);
+            color: #000;
         }
     </style>
 </head>
@@ -334,12 +418,22 @@
 
                     <button type="submit" class="submit-btn hover-target" id="submitBtn">Submit Registration</button>
 
-                    <div id="successMessage" class="success-message">
-                        <i class="ri-checkbox-circle-line"
-                            style="font-size: 1.5rem; vertical-align: middle; margin-right: 8px;"></i>
-                        Registration details submitted successfully! We'll contact you soon.
-                    </div>
                 </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Popup Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="ri-checkbox-circle-fill"></i>
+            </div>
+            <h3 class="success-title">Registration Successful!</h3>
+            <p class="success-message-text">Your details have been submitted. We will contact you soon.</p>
+            <a href="../art.html" class="return-btn">Return to Events</a>
+        </div>
+    </div>
             </div>
         </div>
     </main>
@@ -361,23 +455,23 @@
 
     <!-- Mobile Bottom Navigation (App-like) -->
     <nav class="mobile-bottom-nav">
-        <a href="index.html" class="nav-item">
+        <a href="../index.html  " class="nav-item">
             <i class="ri-home-5-line"></i>
             <span>Home</span>
         </a>
-        <a href="tech.html" class="nav-item">
+        <a href="../tech.html" class="nav-item">
             <i class="ri-terminal-box-line"></i>
             <span>Tech</span>
         </a>
-        <a href="art.html" class="nav-item active">
+        <a href="../art.html" class="nav-item active">
             <i class="ri-palette-fill"></i>
             <span>Art</span>
         </a>
-        <a href="sports.html" class="nav-item">
+        <a href="../sports.html" class="nav-item">
             <i class="ri-football-line"></i>
             <span>Sports</span>
         </a>
-        <a href="scorecard.html" class="nav-item">
+        <a href="../scorecard.html" class="nav-item">
             <i class="ri-bar-chart-line"></i>
             <span>Scorecard</span>
         </a>
@@ -402,12 +496,11 @@
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
 
-                document.getElementById('successMessage').style.display = 'block';
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 5000);
+                // Show success modal
+                document.getElementById('successModal').classList.add('active');
+                
+                // Hide the main container to avoid messing up the page behind the modal
+                document.querySelector('.registration-container').style.display = 'none';
             }, 1000);
         });
     </script>
