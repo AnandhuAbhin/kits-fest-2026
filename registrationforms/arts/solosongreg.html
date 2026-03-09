@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VedVora Fest 2K26 | Solo Song Registration</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../tech.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../tech.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -247,10 +247,24 @@
         }
 
         @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.3); }
-            50% { opacity: 1; transform: scale(1.1); }
-            70% { transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .success-title {
@@ -321,22 +335,31 @@
             <!-- Rules and Regulations Area -->
             <div class="rules-section glass-panel">
                 <h2 class="rules-title">Solo Song - Rules & Regulations</h2>
-                <ul class="rules-list">
+                <ul class="rules-list" id="rulesList">
                     <li>Time limit for each performance is strictly 3 to 5 minutes. Negative points for exceeding the
                         time limit.</li>
                     <li>Participants can perform songs in any language. Obscene or offensive lyrics will lead to
                         immediate disqualification.</li>
-                    <li>Karaoke tracks are allowed but must be submitted to the event coordinators at least 2 hours
+                    <li class="extra-rule" style="display: none;">Karaoke tracks are allowed but must be submitted to
+                        the event coordinators at least 2 hours
                         before the event starts.</li>
-                    <li>Singing along with vocal tracks is strictly prohibited; only instrumental/karaoke tracks are
+                    <li class="extra-rule" style="display: none;">Singing along with vocal tracks is strictly
+                        prohibited; only instrumental/karaoke tracks are
                         allowed.</li>
-                    <li>Live accompaniment (maximum one person playing an instrument) is allowed, but the accompanist
+                    <li class="extra-rule" style="display: none;">Live accompaniment (maximum one person playing an
+                        instrument) is allowed, but the accompanist
                         will not be judged.</li>
-                    <li>Judging criteria: Voice Quality, Rhythm and Pitch accuracy, Song selection, and Overall Stage
+                    <li class="extra-rule" style="display: none;">Judging criteria: Voice Quality, Rhythm and Pitch
+                        accuracy, Song selection, and Overall Stage
                         Presence.</li>
-                    <li>Registration fee is ₹100/- and is non-refundable under any circumstances.</li>
-                    <li>The decision of the judges and organizing committee will be final and binding.</li>
+                    <li class="extra-rule" style="display: none;">Registration fee is ₹100/- and is non-refundable under
+                        any circumstances.</li>
+                    <li class="extra-rule" style="display: none;">The decision of the judges and organizing committee
+                        will be final and binding.</li>
                 </ul>
+                <button type="button" id="readMoreBtn" onclick="toggleRules()"
+                    style="background: none; border: none; color: #ff003c; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 1.05rem; padding: 0; margin-top: 5px; text-decoration: underline; font-weight: 500;">Read
+                    more...</button>
             </div>
 
             <!-- Registration Form Section -->
@@ -409,7 +432,7 @@
                             <p
                                 style="margin-top: 0; margin-bottom: 1rem; color: #aaa; font-weight: normal; font-size: 0.9rem;">
                                 Please scan the QR code to pay the registration fee of ₹100/-</p>
-                            <img src="../assets/qr code/GooglePay_QR.png" alt="Payment QR Code">
+                            <img src="../../assets/qr code/GooglePay_QR.png" alt="Payment QR Code">
                             <p>Payment: ₹100/-</p>
                             <p style="font-size: 0.85rem; color: #ff003c; font-weight: normal; margin-top: 0.5rem;">
                                 After successful payment, please click Submit below.</p>
@@ -431,11 +454,11 @@
             </div>
             <h3 class="success-title">Registration Successful!</h3>
             <p class="success-message-text">Your details have been submitted. We will contact you soon.</p>
-            <a href="../art.html" class="return-btn">Return to Events</a>
+            <a href="../../art.html" class="return-btn">Return to Events</a>
         </div>
     </div>
-            </div>
-        </div>
+    </div>
+    </div>
     </main>
 
     <!-- Footer -->
@@ -455,31 +478,54 @@
 
     <!-- Mobile Bottom Navigation (App-like) -->
     <nav class="mobile-bottom-nav">
-        <a href="../index.html  " class="nav-item">
+        <a href="../../index.html  " class="nav-item">
             <i class="ri-home-5-line"></i>
             <span>Home</span>
         </a>
-        <a href="../tech.html" class="nav-item">
+        <a href="../../tech.html" class="nav-item">
             <i class="ri-terminal-box-line"></i>
             <span>Tech</span>
         </a>
-        <a href="../art.html" class="nav-item active">
+        <a href="../../art.html" class="nav-item active">
             <i class="ri-palette-fill"></i>
             <span>Art</span>
         </a>
-        <a href="../sports.html" class="nav-item">
+        <a href="../../sports.html" class="nav-item">
             <i class="ri-football-line"></i>
             <span>Sports</span>
         </a>
-        <a href="../scorecard.html" class="nav-item">
+        <a href="../../scorecard.html" class="nav-item">
             <i class="ri-bar-chart-line"></i>
             <span>Scorecard</span>
         </a>
+        <a href="../../menu.html" class="nav-item tab-cta">
+            <div class="nav-fab">
+                <i class="ri-ticket-2-line"></i>
+            </div>
+            <span>Menu</span>
+        </a>
     </nav>
 
-    <script src="script.js"></script>
-    <script src="tech.js"></script>
+    <script src="../../script.js"></script>
+    <script src="../../tech.js"></script>
     <script>
+        function toggleRules() {
+            var extraRules = document.querySelectorAll('.extra-rule');
+            var btnText = document.getElementById("readMoreBtn");
+
+            var isHidden = extraRules[0].style.display === "none";
+
+            extraRules.forEach(function (rule) {
+                rule.style.display = isHidden ? "list-item" : "none";
+            });
+
+            if (isHidden) {
+                btnText.innerHTML = "Read less";
+            } else {
+                btnText.innerHTML = "Read more...";
+            }
+        }
+
         // Form Submission Logic
         document.getElementById('soloSongForm').addEventListener('submit', function (e) {
             const form = this;
@@ -498,7 +544,7 @@
 
                 // Show success modal
                 document.getElementById('successModal').classList.add('active');
-                
+
                 // Hide the main container to avoid messing up the page behind the modal
                 document.querySelector('.registration-container').style.display = 'none';
             }, 1000);
