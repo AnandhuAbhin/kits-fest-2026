@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VedVora Fest 2K26 | Tricky Circuit Registration</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../tech.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons for Mobile Nav -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- GSAP & Lenis for smooth scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <style>
+        .registration-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            margin-top: 100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .rules-section {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(255, 0, 60, 0.3);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .rules-title {
+            color: #ff003c;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 0, 60, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .rules-list {
+            list-style: none;
+            padding: 0;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .rules-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .rules-list li::before {
+            content: "•";
+            color: #ff003c;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.4rem;
+        }
+
+        .form-section {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-title {
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-subtitle {
+            color: #aaa;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        .form-group label span {
+            color: #ff003c;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ff003c;
+            box-shadow: 0 0 0 2px rgba(255, 0, 60, 0.2);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        select.form-control option {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .submit-btn {
+            background: #ff003c;
+            color: #fff;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #d60032;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 0, 60, 0.3);
+        }
+
+        .qr-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .qr-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .qr-section p {
+            margin-top: 1rem;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Hidden iframe for form submission */
+        .hidden-iframe {
+            display: none;
+        }
+
+        /* Success Popup Modal */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .success-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-content {
+            background: rgba(20, 20, 25, 0.9);
+            border: 1px solid rgba(30, 200, 100, 0.3);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(30, 200, 100, 0.1);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-modal.active .success-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #1ec864;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(30, 200, 100, 0.4);
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .success-message-text {
+            color: #aaa;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .return-btn {
+            display: inline-block;
+            background: #1ec864;
+            color: #000;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .return-btn:hover {
+            background: #17a652;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 200, 100, 0.3);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body class="">
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-mesh"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar desktop-nav">
+        <div class="nav-logo hover-target">VEDVORA '26</div>
+        <div class="nav-links">
+            <a href="index.html" class="hover-target nav-link">Home</a>
+            <a href="tech.html" class="hover-target nav-link active">Tech</a>
+            <a href="art.html" class="hover-target nav-link">Art</a>
+            <a href="sports.html" class="hover-target nav-link">Sports</a>
+            <a href="scorecard.html" class="hover-target nav-link">Scorecard</a>
+            <a href="tech.html" class="hover-target nav-btn">Back to Events</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="registration-container">
+            <!-- Rules and Regulations Area -->
+            <!-- <div class="rules-section glass-panel">
+                <h2 class="rules-title">Solo Song - Rules & Regulations</h2>
+                <ul class="rules-list" id="rulesList">
+                    <li>Time limit for each performance is strictly 3 to 5 minutes. Negative points for exceeding the
+                        time limit.</li>
+                    <li>Participants can perform songs in any language. Obscene or offensive lyrics will lead to
+                        immediate disqualification.</li>
+                    <li class="extra-rule" style="display: none;">Karaoke tracks are allowed but must be submitted to
+                        the event coordinators at least 2 hours
+                        before the event starts.</li>
+                    <li class="extra-rule" style="display: none;">Singing along with vocal tracks is strictly
+                        prohibited; only instrumental/karaoke tracks are
+                        allowed.</li>
+                    <li class="extra-rule" style="display: none;">Live accompaniment (maximum one person playing an
+                        instrument) is allowed, but the accompanist
+                        will not be judged.</li>
+                    <li class="extra-rule" style="display: none;">Judging criteria: Voice Quality, Rhythm and Pitch
+                        accuracy, Song selection, and Overall Stage
+                        Presence.</li>
+                    <li class="extra-rule" style="display: none;">Registration fee is ₹100/- and is non-refundable under
+                        any circumstances.</li>
+                    <li class="extra-rule" style="display: none;">The decision of the judges and organizing committee
+                        will be final and binding.</li>
+                </ul>
+                <button type="button" id="readMoreBtn" onclick="toggleRules()"
+                    style="background: none; border: none; color: #ff003c; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 1.05rem; padding: 0; margin-top: 5px; text-decoration: underline; font-weight: 500;">Read
+                    more...</button>
+            </div> -->
+
+            <!-- Registration Form Section -->
+            <div class="form-section glass-panel">
+                <h2 class="form-title">Tricky Circuit Registration</h2>
+                <p class="form-subtitle">Fill out the details below accurately. All fields are required.</p>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" class="hidden-iframe"></iframe>
+
+                <form
+                    action="https://docs.google.com/forms/u/0/d/1juyFoi36MqK54DN8fRkyHwYQWDXa7nHPbSn6SgHeB_E/formResponse"
+                    method="POST" target="hidden_iframe" id="trickyCircuitForm">
+
+                    <div class="form-group">
+                        <label>Full Name <span>*</span></label>
+                        <input type="text" name="entry.1810222048" class="form-control" required
+                            placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name of the College <span>*</span></label>
+                        <input type="text" name="entry.694362770" class="form-control" required
+                            placeholder="Enter your college name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number <span>*</span></label>
+                        <input type="tel" name="entry.904623588" class="form-control" required
+                            placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email ID <span>*</span></label>
+                        <input type="email" name="entry.1392380911" class="form-control" required
+                            placeholder="Enter your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Academic Department/Program <span>*</span></label>
+                        <select name="entry.218309904" class="form-control" required>
+                            <option value="">Choose</option>
+                            <option value="Computer Science & Engineering (CSE)">Computer Science & Engineering (CSE)
+                            </option>
+                            <option value="Electronics & Communication Engineering (ECE)">Electronics & Communication
+                                Engineering (ECE)</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Electrical Engineering (EEE)">Electrical Engineering (EEE)</option>
+                            <option value="Management Studies (MBA/BBA)">Management Studies (MBA/BBA)</option>
+                            <option value="Arts & Humanities">Arts & Humanities</option>
+                            <option value="Science (Physics/Chemistry/Maths)">Science (Physics/Chemistry/Maths)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What is your current academic year? <span>*</span></label>
+                        <select name="entry.2007964779" class="form-control" required>
+                            <option value="">Choose</option>
+                            <option value="First Year">First Year</option>
+                            <option value="Second Year">Second Year</option>
+                            <option value="Third Year">Third Year</option>
+                            <option value="fourth Year">Fourth Year</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Registration Fee Payment <span>*</span></label>
+                        <div class="qr-section">
+                            <p
+                                style="margin-top: 0; margin-bottom: 1rem; color: #aaa; font-weight: normal; font-size: 0.9rem;">
+                                Please scan the QR code to pay the registration fee of ₹100/-</p>
+                            <img src="../../assets/qr code/qr-sruthi.jpeg" alt="Payment QR Code">
+                            <p>Payment: ₹100/-</p>
+                            <p style="font-size: 0.85rem; color: #ff003c; font-weight: normal; margin-top: 0.5rem;">
+                                After successful payment, please click Submit below.</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn hover-target" id="submitBtn">Submit Registration</button>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Popup Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="ri-checkbox-circle-fill"></i>
+            </div>
+            <h3 class="success-title">Registration Successful!</h3>
+            <p class="success-message-text">Your details have been submitted. We will contact you soon.</p>
+            <a href="../../tech.html" class="return-btn">Return to Events</a>
+        </div>
+    </div>
+    </div>
+    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-panel">
+                <div class="footer-logo">VEDVORA '26</div>
+                <div class="social-links">
+                    <a href="#" class="hover-target"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#" class="hover-target"><i class="ri-discord-line"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 VedVora Committee. Friends don't lie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation (App-like) -->
+    <nav class="mobile-bottom-nav">
+        <a href="../../index.html  " class="nav-item">
+            <i class="ri-home-5-line"></i>
+            <span>Home</span>
+        </a>
+        <a href="../../tech.html" class="nav-item active">
+            <i class="ri-terminal-box-line"></i>
+            <span>Tech</span>
+        </a>
+        <a href="../../art.html" class="nav-item">
+            <i class="ri-palette-fill"></i>
+            <span>Art</span>
+        </a>
+        <a href="../../sports.html" class="nav-item">
+            <i class="ri-football-line"></i>
+            <span>Sports</span>
+        </a>
+        <a href="../../scorecard.html" class="nav-item">
+            <i class="ri-bar-chart-line"></i>
+            <span>Scorecard</span>
+        </a>
+        <a href="../../menu.html" class="nav-item tab-cta">
+            <div class="nav-fab">
+                <i class="ri-ticket-2-line"></i>
+            </div>
+            <span>Menu</span>
+        </a>
+    </nav>
+
+    <script src="../../script.js"></script>
+    <script src="../../tech.js"></script>
+    <script>
+        function toggleRules() {
+            var extraRules = document.querySelectorAll('.extra-rule');
+            var btnText = document.getElementById("readMoreBtn");
+
+            var isHidden = extraRules[0].style.display === "none";
+
+            extraRules.forEach(function (rule) {
+                rule.style.display = isHidden ? "list-item" : "none";
+            });
+
+            if (isHidden) {
+                btnText.innerHTML = "Read less";
+            } else {
+                btnText.innerHTML = "Read more...";
+            }
+        }
+
+        // Form Submission Logic
+        document.getElementById('trickyCircuitForm').addEventListener('submit', function (e) {
+            const form = this;
+            const btn = document.getElementById('submitBtn');
+
+            btn.innerHTML = 'Submitting...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+
+            // Allow form to submit to hidden iframe
+            setTimeout(() => {
+                form.reset();
+                btn.innerHTML = 'Submit Registration';
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+
+                // Show success modal
+                document.getElementById('successModal').classList.add('active');
+
+                // Hide the main container to avoid messing up the page behind the modal
+                document.querySelector('.registration-container').style.display = 'none';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
